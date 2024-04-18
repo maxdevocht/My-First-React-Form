@@ -3,7 +3,7 @@ import React, { useState } from "react"
 export default function Form() {
 
   const [formData, useFormData] = useState(
-    {email: "", password: ""}
+    {firstName: "", lastName: "", email: "", password: ""}
   )
 
   function handleChange(event) {
@@ -25,12 +25,48 @@ export default function Form() {
               alt="Your Company"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Sign in to your account
+              Sign up your account
             </h2>
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" action="#" method="POST">
+              <div className="flex flex-row gap-3 justify-between">
+                <div className="w-2/4">
+                  <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">
+                    First Name
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="firstName"
+                      name="firstName"
+                      type="firstName"
+                      autoComplete="firstName"
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+
+                <div className="w-2/4">
+                  <label htmlFor="lastName" className="block text-sm font-medium leading-6 text-gray-900">
+                    Last Name
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      type="lastName"
+                      autoComplete="lastName"
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
