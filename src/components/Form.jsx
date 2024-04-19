@@ -25,6 +25,10 @@ export default function Form() {
     }) 
   }
 
+  function handleSubmit(event) {
+    event.preventDefault()
+  }
+
     return (
       <>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -40,7 +44,7 @@ export default function Form() {
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="flex flex-row gap-3 justify-between">
                 <div className="w-2/4">
                   <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">
@@ -180,7 +184,6 @@ export default function Form() {
   
               <div>
                 <button
-                  type="submit"
                   className="flex w-full justify-center rounded-md bg-teal-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                 >
                   Verstuur
