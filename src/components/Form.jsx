@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 export default function Form() {
 
-  const [formData, useFormData] = useState(
+  const [formData, setFormData] = useState(
     {
       firstName: "", 
       lastName: "", 
@@ -10,15 +10,17 @@ export default function Form() {
       number: "", 
       email: "", 
       comment: "",
-      checkbox: true
+      checkbox: true,
+      options: ""
     }
   )
 
   function handleChange(event) {
+    const {name, value, type, checked} = event.target
     setFormData(prevFormData => {
       return {
         ...prevFormData,
-        [event.target.name]: event.target.value
+        [name]: type === "checkbox" ? checked : value
       }
     }) 
   }
@@ -122,6 +124,31 @@ export default function Form() {
                   />
                 </div>
               </div>
+
+              <div>
+                <label htmlFor="options" className="block text-sm font-medium leading-6 text-gray-900">
+                  Kies materiaal
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="options"
+                    name="options"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                    onChange={handleChange}
+                    value={formData.options}
+                  >
+                    <option value="">-- selecteer materiaal --</option>
+                    <option value="beebot">Beebot</option>
+                    <option value="byor">BYOR</option>
+                    <option value="greenscreen">Greenscreen</option>
+                    <option value="ipad">iPad</option>
+                    <option value="lego">Lego Essentials</option>
+                    <option value="osmo">OSMO</option>
+                    <option value="podcastset">Podcastset</option>
+                  </select>
+                </div>
+              </div>
   
               <div>
                 <label htmlFor="comment" className="block text-sm font-medium leading-6 text-gray-900">
@@ -139,13 +166,14 @@ export default function Form() {
               </div>
               
               <div>
-                <div className="mt-2 flex items-center gap-2">
+                <div className="mt-2 flex items-center gap-2 text-sm font-medium leading-6 text-gray-900">
                   <input
+                    id="checkbox"
                     name="checkbox"
                     type="checkbox"
                     className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                     onChange={handleChange}
-                    value={formData.comment}
+                    value={formData.checkbox}
                   /> Ik ga akkoord met de voorwaarden
                 </div>
               </div>
