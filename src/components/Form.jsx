@@ -3,7 +3,15 @@ import React, { useState } from "react"
 export default function Form() {
 
   const [formData, useFormData] = useState(
-    {firstName: "", lastName: "", mobile: "", number: "", email: "", comment: ""}
+    {
+      firstName: "", 
+      lastName: "", 
+      mobile: "", 
+      number: "", 
+      email: "", 
+      comment: "",
+      checkbox: true
+    }
   )
 
   function handleChange(event) {
@@ -24,8 +32,8 @@ export default function Form() {
               src="./src/assets/logo.svg?color=teal&shade=600"
               alt="Your Company"
             /> 
-            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Sign up your account
+            <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+              Aanvraagformulier
             </h2>
           </div>
   
@@ -38,10 +46,8 @@ export default function Form() {
                   </label>
                   <div className="mt-2">
                     <input
-                      id="firstName"
                       name="firstName"
                       type="text"
-                      autoComplete="firstName"
                       required
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                       onChange={handleChange}
@@ -56,10 +62,8 @@ export default function Form() {
                   </label>
                   <div className="mt-2">
                     <input
-                      id="lastName"
                       name="lastName"
                       type="text"
-                      autoComplete="lastName"
                       required
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                       onChange={handleChange}
@@ -76,10 +80,8 @@ export default function Form() {
                   </label>
                   <div className="mt-2">
                     <input
-                      id="mobile"
                       name="mobile"
                       type="text"
-                      autoComplete="mobile"
                       required
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                       onChange={handleChange}
@@ -94,10 +96,8 @@ export default function Form() {
                   </label>
                   <div className="mt-2">
                     <input
-                      id="number"
                       name="number"
                       type="text"
-                      autoComplete="number"
                       required
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                       onChange={handleChange}
@@ -113,10 +113,8 @@ export default function Form() {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="email"
                     name="email"
                     type="email"
-                    autoComplete="email"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                     onChange={handleChange}
@@ -126,20 +124,29 @@ export default function Form() {
               </div>
   
               <div>
-                <div className="flex items-center justify-between">
-                  <label htmlFor="comment" className="block text-sm font-medium leading-6 text-gray-900">
-                    Vraag of opmerking
-                  </label>
-                </div>
+                <label htmlFor="comment" className="block text-sm font-medium leading-6 text-gray-900">
+                  Vraag of opmerking
+                </label>
                 <div className="mt-2">
                   <textarea
-                    id="comment"
                     name="comment"
                     rows={3}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                     onChange={handleChange}
                     value={formData.comment}
                   />
+                </div>
+              </div>
+              
+              <div>
+                <div className="mt-2 flex items-center gap-2">
+                  <input
+                    name="checkbox"
+                    type="checkbox"
+                    className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                    onChange={handleChange}
+                    value={formData.comment}
+                  /> Ik ga akkoord met de voorwaarden
                 </div>
               </div>
   
