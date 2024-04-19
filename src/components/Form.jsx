@@ -9,14 +9,16 @@ export default function Form() {
       mobile: "", 
       number: "", 
       email: "", 
+      options: "",
+      startDate: "",
+      retourDate: "",
       comment: "",
-      checkbox: true,
-      options: ""
+      checkbox: true
     }
   )
 
   function handleChange(event) {
-    const {name, value, type, checked} = event.target
+    const {name, value, type, checked,} = event.target
     setFormData(prevFormData => {
       return {
         ...prevFormData,
@@ -151,6 +153,40 @@ export default function Form() {
                     <option value="osmo">OSMO</option>
                     <option value="podcastset">Podcastset</option>
                   </select>
+                </div>
+              </div>
+
+              <div className="flex flex-row gap-3 justify-between">
+                <div className="w-2/4">
+                  <label htmlFor="startDate" className="block text-sm font-medium leading-6 text-gray-900">
+                    Startdatum
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      name="startDate"
+                      type="date"
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                      onChange={handleChange}
+                      value={formData.startDate}
+                    />
+                  </div>
+                </div>
+
+                <div className="w-2/4">
+                  <label htmlFor="retourDate" className="block text-sm font-medium leading-6 text-gray-900">
+                    Retourdatum
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      name="retourDate"
+                      type="date"
+                      required
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                      onChange={handleChange}
+                      value={formData.retourDate}
+                    />
+                  </div>
                 </div>
               </div>
   
